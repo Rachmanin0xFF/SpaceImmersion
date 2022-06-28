@@ -58,10 +58,10 @@ void ofApp::setup(){
 					);
 
 			// for random sphere
-			pos = glm::vec3(rd + 10, 0, 0);
-			while (glm::length2(pos) > rd * rd) {
-				pos = glm::vec3(ofRandom(-rd, rd), ofRandom(-rd, rd), ofRandom(-rd, rd));
-			}
+			//pos = glm::vec3(rd + 10, 0, 0);
+			//while (glm::length2(pos) > rd * rd) {
+			//	pos = glm::vec3(ofRandom(-rd, rd), ofRandom(-rd, rd), ofRandom(-rd, rd));
+			//}
 
 			//pos = glm::vec3(x * 3, y * 3, (y - resy / 2.f)*(y-resy/2.f)/40.f + (x - resx / 2.f)*(x-resx/2.f)/40.f);
 
@@ -193,7 +193,7 @@ void ofApp::update(){
 	// set mesh vertices
 	for (int i = 0; i < resx * resy; i++) {
 		grid.setVertex(i, grid.getVertex(i) - mean);
-		grid_lines.setVertex(i, grid.getVertex(i) * 1.02);
+		grid_lines.setVertex(i, grid.getVertex(i) * 1.0);
 		//mmax = glm::max(mmax, grid.getVertex(i));
 		//mmin = glm::min(mmin, grid.getVertex(i));
 	}

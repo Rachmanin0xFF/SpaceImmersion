@@ -23,15 +23,15 @@ class ofApp : public ofBaseApp{
 
 		unsigned int get_index(int x, int y);
 
-		bool flip_y = true;
-		bool flip_x = true;
+		bool flip_y = false;
+		bool flip_x = false;
 
 		std::vector<glm::vec3> vels;
 		
 		ofEasyCam cam;
 		ofMesh grid;
 		ofMesh grid_lines;
-		int resx = 140;
-		int resy = 140;
+		int resx = 200;
+		int resy = 200;
 		bool doSim = false;
 };
