@@ -69,8 +69,6 @@ void ofApp::setup(){
 			grid_lines.addVertex(pos);
 
 			ofFloatColor c(cos(theta*2)*0.4+0.4, sin(theta*2)*0.4 + 0.4, sin(phi*2)*0.4+0.4);
-			if (x == 100) c = ofFloatColor(1, 1, 1);
-			if (y == 100) c = ofFloatColor(1, 1, 1);
 			grid.addColor(c);
 			grid_lines.addColor(c); // may be overwritten later
 		}
@@ -150,12 +148,11 @@ void ofApp::update(){
 			// minimal surface approx.
 			//vels[get_index(x, y)] += ((v1 + v2 + v3 + v4) / 4.0 - v0)*0.7;
 			
-			// set color to mean curvature
 			glm::vec3 r = (v1 + v2 + v3 + v4) / 4.0 - v0;
 			float area = glm::length(glm::cross((v1 - v3), (v2 - v4)));
-			float rr = 500.f*glm::length2(r)/area;
+			float curv = 140.f*glm::length2(r)/area;
 
-			grid.setColor(get_index(x, y), ofFloatColor(0.01*rr, 0.02*rr, 0.07*rr));
+			grid.setColor(get_index(x, y), grid_lines.getColor(get_index(x, y))*0.8 + ofFloatColor(0.01*curv, 0.02*curv, 0.07*curv));
 			
 			// behold... cpu shading
 			//glm::vec3 n = glm::normalize(glm::cross((v1 - v3), (v2 - v4)));
@@ -163,7 +160,7 @@ void ofApp::update(){
 		}
 	}
 	// smooth out colors
-	
+	/*
 	for(int k = 0; k < 2; k++)
 	for (int x = 0; x < resx; x++) {
 		for (int y = 0; y < resy; y++) {
@@ -172,7 +169,8 @@ void ofApp::update(){
 				grid.getColor(get_index(x, y+1)) / 4.0 +
 				grid.getColor(get_index(x, y-1)) / 4.0));
 		}
-	}
+	}*/
+
 	// repel random vertices
 	
 	for(int k = 0; k < 10; k++)

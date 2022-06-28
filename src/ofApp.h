@@ -23,6 +23,8 @@ class ofApp : public ofBaseApp{
 
 		unsigned int get_index(int x, int y);
 
+		// these two bools determine the surface topology
+		// TODO: add support for spheres? (x/y swap)
 		bool flip_y = false;
 		bool flip_x = false;
 
