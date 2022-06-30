@@ -1,6 +1,6 @@
 # SpaceImmersion
  
-![Alt text](pics/screenshot2.png?raw=true "Title")
+![swirly geometric eye thing](pics/screenshot2.png?raw=true "Title")
 
 A sketch made with OpenFrameworks.
 
